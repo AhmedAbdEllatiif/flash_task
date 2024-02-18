@@ -1,14 +1,14 @@
-import 'package:flash_task/currency_exchange/presentation/currency_exchange_graph/currency_exchange_graph_screen.dart';
 import 'package:flash_task/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'common/screen_utils/screen_util.dart';
 import 'common/themes/theme_color.dart';
 import 'currency_exchange/di/_init_all_di_currency_exchange.dart';
-import 'gold_price/di/_init_all_di_currency_exchange.dart';
+import 'gold_exchange/di/_init_all_di_currency_exchange.dart';
 
-void main() {
+void main() async {
   /// ensureInitialized
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -21,6 +21,9 @@ void main() {
   /// init _Gold_ Exchange Dependencies
   initGoldExchangeDependencies();
 
+  /// load the env file
+  await dotenv.load(fileName: ".env");
+
   runApp(const MyApp());
 }
 
@@ -30,10 +33,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
       /// title
       title: 'Trade',
-
 
       ///
       ///
@@ -76,12 +77,11 @@ class MyApp extends StatelessWidget {
         ),
       ),
 
-
       ///
       ///
       /// home
       ///
-      home: const CurrencyExchangeGraphScreen(),
+      home: const HomeScreen(),
     );
   }
 }

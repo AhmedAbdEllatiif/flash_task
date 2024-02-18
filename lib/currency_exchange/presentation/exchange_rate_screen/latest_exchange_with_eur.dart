@@ -1,4 +1,5 @@
 import 'package:flash_task/common/extensions/size_extensions.dart';
+import 'package:flash_task/common/themes/theme_color.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common/constants/app_utils.dart';
@@ -18,7 +19,7 @@ class LatestExchangeWithEur extends StatelessWidget {
 
       /// container decoration
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.blue, width: 2.0),
+        border: Border.all(color: AppColor.black, width: 2.0),
         borderRadius: BorderRadius.circular(AppUtils.cornerRadius.w),
       ),
 

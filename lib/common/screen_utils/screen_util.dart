@@ -33,15 +33,6 @@ class ScreenUtil {
         num height = defaultHeight,
         bool allowFontScaling = false,
       }) {
-
-    log("init ..........\n}");
-    log("devicePixelRatio >> ${window.devicePixelRatio}");
-    log("physicalSize.width >> ${window.physicalSize.width}");
-    log("physicalSize.height >> ${window.physicalSize.height}");
-    log("padding.top >> ${window.padding.top}");
-    log("padding.bottom >> ${window.padding.bottom}");
-    log("textScaleFactor >> ${window.textScaleFactor}");
-    log("end ..........\n}");
     _instance = ScreenUtil._();
     _instance.uiWidthPx = width;
     _instance.uiHeightPx = height;

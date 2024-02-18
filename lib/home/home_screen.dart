@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../common/constants/app_utils.dart';
 import '../currency_exchange/presentation/exchange_rate_screen/_exchange_rate_screen.dart';
-import '../gold_price/presentation/gold_exchange_prices_screen/gold_exchange_prices_screen.dart';
+import '../gold_exchange/presentation/gold_exchange_prices_screen/gold_exchange_prices_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -70,14 +70,12 @@ class _HomeScreenState extends State<HomeScreen>
             /// TabBarView
             Expanded(
               child: TabBarView(
-                //physics: NeverScrollableScrollPhysics(),
                 controller: _tabController,
-
                 children: const [
-                  /// Currency exchange
+                  /// Currency exchange screen
                   ExchangeRateScreen(),
 
-                  /// Gold
+                  /// Gold exchange screen
                   GoldExchangePricesScreen(),
                 ],
               ),

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:equatable/equatable.dart';
 
 class ExchangeRateEntity extends Equatable {
@@ -15,8 +13,6 @@ class ExchangeRateEntity extends Equatable {
   }) {
     // init the rate to the egp pound
     rateToEGP = rates.containsKey("EGP") ? rates["EGP"].toString() : "";
-    log(">>>>>>>>>>>\n rates: $rates");
-
   }
 
   @override

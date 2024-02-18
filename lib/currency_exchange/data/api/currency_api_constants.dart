@@ -1,10 +1,12 @@
 
+import 'package:flash_task/common/classes/secret_manager.dart';
+
 ///
 ///  CurrencyApiBase
 ///
 class CurrencyApiBase {
   // account Access key
-  static const String accessKey = '81cc93ac09343fb3976938b3eae8f1f5';
+  static String accessKey = SecretsManager.currencyAccessKey();
 
   // base url
   static const String baseUrl = 'api.exchangeratesapi.io';

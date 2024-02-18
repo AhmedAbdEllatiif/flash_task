@@ -1,11 +1,14 @@
+import 'package:flash_task/common/extensions/size_extensions.dart';
 import 'package:flash_task/common/functions/git_it_instance.dart';
 import 'package:flash_task/common/themes/theme_color.dart';
 import 'package:flash_task/common/widgets/app_error_widget.dart';
 import 'package:flash_task/common/widgets/loading_widget.dart';
-import 'package:flash_task/currency_exchange/logic/get_exchange_rate_cubit.dart';
+import 'package:flash_task/currency_exchange/logic/latest_exchange_rate/get_exchange_rate_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../common/constants/app_utils.dart';
+import '../time_series_exchange_rate/_time_series_exchange_rate_screen.dart';
 import '../widgets/section_title_widget.dart';
 import 'exhange_rates_list.dart';
 import 'latest_exchange_with_eur.dart';
@@ -101,9 +104,55 @@ class _ExchangeRateScreenState extends State<ExchangeRateScreen>
                     LatestExchangeWithEur(
                         rate: state.exchangeRateEntity.rateToEGP),
 
+
+                    /// button "2023 TimeSeries"
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: TextButton(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 5, horizontal: 10),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: AppColor.gray),
+                            borderRadius:
+                                BorderRadius.circular(AppUtils.cornerRadius.w),
+                          ),
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                "2023 TimeSeries",
+                                style: TextStyle(color: AppColor.blue),
+                              ),
+                              Icon(
+                                Icons.arrow_forward,
+                                size: 20,
+                                color: AppColor.blue,
+                              )
+                            ],
+                          ),
+                        ),
+                        onPressed: () => _navigateToTimeSeriesScreen(),
+                      ),
+                    ),
+
+
+                    /// divider
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: MediaQuery.of(context).size.width / 10,
+                      ),
+                      child: const Divider(
+                        color: AppColor.grayFade,
+                      ),
+                    ),
+
                     /// section title "Latest Rate to EUR"
                     const SectionTitleWidget(
-                      text: "Rates",
+                      text: "ALL Rates",
+                      margin: EdgeInsets.only(bottom: 20),
                     ),
 
                     /// list of rest rates
@@ -141,6 +190,15 @@ class _ExchangeRateScreenState extends State<ExchangeRateScreen>
       rateCurrencies: [],
     );
   }
+
+  /// to navigate to TimeSeriesScreen
+  void _navigateToTimeSeriesScreen()=> Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) =>
+      const TimeSeriesExchangeRateScreen(),
+    ),
+  );
 
   @override
   bool get wantKeepAlive => true;

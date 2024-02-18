@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class TabItem extends StatelessWidget {
-
   final String text;
   final double? height;
   final TextStyle? textStyle;

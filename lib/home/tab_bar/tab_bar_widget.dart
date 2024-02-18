@@ -26,7 +26,7 @@ class TabBarWidget extends StatelessWidget {
       //This is responsible for the background of the tabbar, does the magic
       decoration: BoxDecoration(
         //This is for background color
-        color: AppColor.mazaidYellow,
+        color: AppColor.fadeYellow,
         borderRadius: BorderRadius.circular(
           AppUtils.cornerRadius.w,
         ),
